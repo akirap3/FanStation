@@ -253,12 +253,12 @@ export default function Skills() {
 
   const getHighlightClass = (type: string) => {
     switch (type) {
-      case 'keyword': return 'text-accent-violet font-semibold';
-      case 'type': return 'text-accent-cyan';
-      case 'string': return 'text-emerald-400';
-      case 'comment': return 'text-text-secondary italic';
-      case 'number': return 'text-amber-400';
-      default: return 'text-text-primary';
+      case 'keyword': return 'text-[#ff7b72] font-semibold';
+      case 'type': return 'text-[#79c0ff] font-medium';
+      case 'string': return 'text-[#a5d6ff]';
+      case 'comment': return 'text-[#8b949e] italic';
+      case 'number': return 'text-[#d2a8ff]';
+      default: return 'text-[#c9d1d9]';
     }
   };
 
@@ -282,18 +282,18 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* IDE Layout Container */}
-        <div className="glass-card rounded-xl overflow-hidden shadow-2xl border border-obsidian-border grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
+        {/* IDE Layout Container - Fixed to Solid Premium Dark Theme */}
+        <div className="bg-[#0D1117] rounded-xl overflow-hidden shadow-2xl border border-white/10 grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
           
           {/* File Explorer Sidebar */}
-          <div className="md:col-span-3 bg-obsidian-card/40 border-r border-obsidian-border p-4 flex flex-col space-y-6">
-            <div className="flex items-center justify-between text-xs font-mono text-text-secondary tracking-wider uppercase border-b border-obsidian-border pb-2">
+          <div className="md:col-span-3 bg-[#161B22] border-r border-white/5 p-4 flex flex-col space-y-6">
+            <div className="flex items-center justify-between text-xs font-mono text-slate-400 tracking-wider uppercase border-b border-white/5 pb-2">
               <span>Workspace Files</span>
-              <FolderOpen className="w-3.5 h-3.5" />
+              <FolderOpen className="w-3.5 h-3.5 text-slate-400" />
             </div>
 
             <div className="space-y-1.5">
-              <div className="flex items-center gap-2 text-xs font-mono text-text-secondary px-2 py-1 select-none">
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-400 px-2 py-1 select-none">
                 <Folder className="w-3.5 h-3.5 text-accent-violet" />
                 <span>src / config</span>
               </div>
@@ -305,13 +305,13 @@ export default function Skills() {
                     setActiveFileIndex(idx);
                     setHoveredLineIndex(null);
                   }}
-                  className={`w-full flex items-center gap-2 px-3.5 py-2.5 rounded-md font-mono text-xs text-left transition-all duration-200 border border-transparent ${
+                  className={`w-full flex items-center gap-2 px-3.5 py-2.5 rounded-md font-mono text-xs text-left transition-all duration-200 border ${
                     idx === activeFileIndex
-                      ? 'bg-obsidian-glass border-obsidian-border text-accent-cyan shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-obsidian-glass/30'
+                      ? 'bg-[#21262d] border-[#30363d] text-[#58a6ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
+                      : 'border-transparent text-slate-400 hover:text-white hover:bg-white/[0.03]'
                   }`}
                 >
-                  <FileCode className={`w-3.5 h-3.5 ${idx === activeFileIndex ? 'text-accent-cyan' : 'text-text-secondary/60'}`} />
+                  <FileCode className={`w-3.5 h-3.5 ${idx === activeFileIndex ? 'text-[#58a6ff]' : 'text-slate-500'}`} />
                   <span>{file.name}</span>
                 </button>
               ))}
@@ -319,24 +319,24 @@ export default function Skills() {
           </div>
 
           {/* Editor Workspace */}
-          <div className="md:col-span-9 bg-obsidian/20 flex flex-col">
+          <div className="md:col-span-9 bg-[#0A0F19] flex flex-col">
             
             {/* Tab Header bar */}
-            <div className="h-10 bg-obsidian-card/20 border-b border-obsidian-border flex items-center justify-between px-4">
+            <div className="h-10 bg-[#161B22] border-b border-white/5 flex items-center justify-between px-4">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
                 <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
               </div>
-              <div className="font-mono text-xs text-text-secondary">
+              <div className="font-mono text-xs text-slate-400">
                 ~/fanstation/src/ecosystem/{activeFile.name}
               </div>
               <div className="w-12"></div>
             </div>
 
             {/* Code Editor Panels */}
-            <div className="flex-1 p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-left relative bg-obsidian-card/10">
-              <div className="absolute top-4 right-4 text-[10px] text-text-secondary/30 pointer-events-none select-none">
+            <div className="flex-1 p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-left relative bg-[#0A0F19]">
+              <div className="absolute top-4 right-4 text-[10px] text-slate-600 pointer-events-none select-none">
                 {activeFile.type.toUpperCase()} EDITOR
               </div>
               
@@ -352,12 +352,12 @@ export default function Skills() {
                   }`}
                 >
                   {/* Line Number */}
-                  <span className="w-6 text-right select-none text-text-secondary/30 font-light border-r border-obsidian-border/50 pr-3">
+                  <span className="w-6 text-right select-none text-slate-500 font-light border-r border-white/5 pr-3">
                     {lineIdx + 1}
                   </span>
                   
                   {/* Code tokens */}
-                  <span className="flex-1 whitespace-pre">
+                  <span className="flex-1 whitespace-pre text-[#c9d1d9]">
                     {line.length === 0 ? ' ' : line.map((token, tokenIdx) => (
                       <span key={tokenIdx} className={getHighlightClass(token.highlightType)}>
                         {token.text}
@@ -369,19 +369,19 @@ export default function Skills() {
             </div>
 
             {/* Console Value Impact Analyzer Panel */}
-            <div className="bg-obsidian-card/60 border-t border-obsidian-border p-4 font-mono text-left">
+            <div className="bg-[#161B22] border-t border-white/5 p-4 font-mono text-left">
               <div className="flex items-center gap-2 text-xs font-semibold text-accent-cyan uppercase tracking-wider mb-2.5">
                 <Terminal className="w-4 h-4" />
                 <span>Value Impact Parser</span>
               </div>
               
-              <div className="bg-obsidian/75 rounded-md p-3.5 border border-obsidian-border/50 min-h-[90px] flex items-start gap-3">
+              <div className="bg-[#0D1117] rounded-md p-3.5 border border-white/10 min-h-[90px] flex items-start gap-3">
                 <AlertCircle className="w-4 h-4 text-accent-cyan mt-0.5 flex-shrink-0 animate-pulse" />
                 <div className="space-y-1">
-                  <div className="text-xs font-semibold text-text-primary uppercase tracking-wide">
+                  <div className="text-xs font-semibold text-white uppercase tracking-wide">
                     {activeFile.impactTitle}
                   </div>
-                  <p className="text-xs text-text-secondary leading-relaxed">
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     {activeFile.impactMessage}
                   </p>
                 </div>

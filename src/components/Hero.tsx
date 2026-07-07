@@ -24,7 +24,7 @@ interface Particle {
   radius: number;
 }
 
-export default function Hero({ onExploreClick }: { onExploreClick: () => void }) {
+export default function Hero({ onExploreClick, onContactClick }: { onExploreClick: () => void; onContactClick: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
 
@@ -154,7 +154,7 @@ export default function Hero({ onExploreClick }: { onExploreClick: () => void })
           {/* Badge */}
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-obsidian-border bg-obsidian-glass backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse"></span>
-            <span className="font-mono text-xs tracking-widest uppercase text-accent-cyan">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary font-semibold">
               Available for Opportunities
             </span>
           </div>
@@ -162,7 +162,7 @@ export default function Hero({ onExploreClick }: { onExploreClick: () => void })
           {/* Heading */}
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] text-text-primary">
             Ming-Hung Fan <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-white to-accent-violet">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-violet">
               Architecting frontends
             </span> <br />
             & systems that scale.
@@ -177,7 +177,7 @@ export default function Hero({ onExploreClick }: { onExploreClick: () => void })
           <div className="flex flex-wrap items-center gap-5 pt-4">
             <button 
               onClick={onExploreClick}
-              className="group relative px-6 py-3.5 rounded-lg font-heading text-sm font-medium tracking-wide text-obsidian bg-accent-cyan transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,245,212,0.4)] overflow-hidden"
+              className="group relative px-6 py-3.5 rounded-lg font-heading text-sm font-medium tracking-wide text-white dark:text-obsidian bg-accent-cyan transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,245,212,0.4)] overflow-hidden"
             >
               <div className="absolute inset-0 bg-white/25 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
               <span className="relative flex items-center gap-2">
@@ -185,12 +185,12 @@ export default function Hero({ onExploreClick }: { onExploreClick: () => void })
               </span>
             </button>
             
-            <a 
-              href="mailto:akirapf3@gmail.com" 
-              className="px-6 py-3.5 rounded-lg border border-obsidian-border bg-obsidian-glass backdrop-blur-sm font-heading text-sm font-medium text-text-primary hover:border-text-primary/30 transition-colors duration-300"
+            <button 
+              onClick={onContactClick}
+              className="px-6 py-3.5 rounded-lg border border-obsidian-border bg-obsidian-glass backdrop-blur-sm font-heading text-sm font-medium text-text-primary hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300"
             >
               Get In Touch
-            </a>
+            </button>
           </div>
 
         </div>

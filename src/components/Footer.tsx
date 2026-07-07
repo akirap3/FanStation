@@ -158,7 +158,7 @@ export default function Footer() {
         </div>
 
         {/* Right Column - Console Terminal Footer */}
-        <div className="lg:col-span-7 w-full space-y-4">
+        <div className="dark lg:col-span-7 w-full space-y-4">
           <div className="glass-panel rounded-xl overflow-hidden shadow-xl border border-obsidian-border">
             
             {/* Terminal Header */}

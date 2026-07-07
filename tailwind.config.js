@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,18 +9,18 @@ export default {
     extend: {
       colors: {
         obsidian: {
-          DEFAULT: '#0A0F19',
-          card: '#0D1117',
-          glass: 'rgba(22, 27, 34, 0.75)',
-          border: 'rgba(255, 255, 255, 0.08)',
+          DEFAULT: 'var(--bg-color)',
+          card: 'var(--card-bg)',
+          glass: 'var(--glass-bg)',
+          border: 'var(--border-color)',
         },
         accent: {
-          cyan: '#00F5D4',
-          violet: '#9D4EDD',
+          cyan: 'var(--accent-cyan)',
+          violet: 'var(--accent-violet)',
         },
         text: {
-          primary: '#E6EDF2',
-          secondary: '#8B949E',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
         }
       },
       fontFamily: {
@@ -40,7 +41,7 @@ export default {
         },
         pulseSubtle: {
           '0%, 100%': { opacity: '0.7' },
-          '50%': { opacity: '1', filter: 'drop-shadow(0 0 12px rgba(0, 245, 212, 0.5))' },
+          '50%': { opacity: '1', filter: 'drop-shadow(0 0 12px var(--accent-cyan-glow))' },
         }
       }
     },

@@ -12,7 +12,8 @@ interface Project {
   solution: string;
   outcome: string;
   metrics: string[];
-  link?: string;
+  liveLink?: string;
+  gitLink?: string;
 }
 
 export default function Projects() {
@@ -31,7 +32,8 @@ export default function Projects() {
       solution: "Engineered a custom cache controller using client-side IndexedDB to store 50MB+ of vocabulary datasets. Built high-fidelity canvas mapping layers to export graphic flashcards as clean PDFs and PNGs.",
       outcome: "Eliminated repeated API token expenses by 35% and provided zero-latency offline vocabulary retrieval.",
       metrics: ["50MB+ IndexedDB cache layer", "35% API cost reduction", "Real-time PDF/PNG exporters"],
-      link: "https://github.com/akirap3"
+      liveLink: "https://vocab-by-paw.vercel.app/",
+      gitLink: "https://github.com/akirap3/VocabByPaw"
     },
     {
       id: 'casa-sueno',
@@ -44,7 +46,8 @@ export default function Projects() {
       solution: "Created an administrative console featuring drag-and-drop picture sorting using @dnd-kit, combined with a Supabase PostgreSQL backend database storing localized copy schemas.",
       outcome: "Decreased dashboard administration times and facilitated instant content edits.",
       metrics: ["Zero-friction bilingual schemas", "Drag-and-drop asset ordering", "Instant content propagation"],
-      link: "https://github.com/akirap3"
+      liveLink: "https://casa-sue-o-del-mar.vercel.app/",
+      gitLink: "https://github.com/akirap3/Casa_Sue-o_del_Mar"
     },
     {
       id: 'air-quality',
@@ -57,7 +60,7 @@ export default function Projects() {
       solution: "Developed an Angular HTTP Interceptor mapping automated silent JWT refresh cycles. Subscribed to WebSocket packet emitters, feeding them into a throttled ApexCharts data buffer.",
       outcome: "Rendered real-time sensor updates with zero interface stutter or security credential drops.",
       metrics: ["Throttled WebSockets pipeline", "Automated JWT silent refreshes", "Smooth real-time telemetry rendering"],
-      link: "https://github.com/akirap3"
+      liveLink: "https://peace-air.web.app/home"
     },
     {
       id: 'shengshi',
@@ -70,7 +73,21 @@ export default function Projects() {
       solution: "Implemented Algolia search index hooks for localized queries, coordinated with Firebase Serverless functions and Google Maps API. Designed secure QR claim keys.",
       outcome: "Reduced geographical retrieval delays under 50ms and verified physical exchanges securely.",
       metrics: ["Under 50ms search query lag", "Secure QR code exchange audits", "Serverless Firebase functions architecture"],
-      link: "https://github.com/akirap3"
+      liveLink: "https://shengshi-8bc48.web.app/",
+      gitLink: "https://github.com/akirap3/ShengShi"
+    },
+    {
+      id: 'sun-moon-lake',
+      title: "Sun Moon Lake Travel Showcase",
+      subtitle: "HTML5, CSS3, Bullframe.css & Responsive Design",
+      summary: "A semantic, responsive travel guide page for Sun Moon Lake, Taiwan, demonstrating clean layout structures and lightweight framework usage.",
+      role: "Frontend Developer",
+      stack: ["HTML5", "CSS3", "Bullframe.css", "Responsive Web Design"],
+      challenge: "Constructing a semantic, responsive travel guide for Sun Moon Lake without heavy JavaScript libraries, relying on clean structural elements and optimized embedded media integrations.",
+      solution: "Implemented a fully semantic layout structure using HTML5, utilizing the lightweight Bullframe.css stylesheet framework to ensure optimal responsive design. Embedded media objects like dynamic Google Maps, audio guides, and streaming YouTube embeds.",
+      outcome: "Achieved a lightweight, fast-loading travel guide showcasing clean, standards-compliant layout mechanics.",
+      metrics: ["Zero-dependency semantic HTML", "Lightweight Bullframe.css integration", "Responsive media player containers"],
+      liveLink: "https://web222a3.pages.dev/sun-moon-lake/"
     }
   ];
 
@@ -100,7 +117,7 @@ export default function Projects() {
             Architectural Case Studies.
           </h2>
           <p className="font-body text-text-secondary max-w-xl text-sm sm:text-base leading-relaxed">
-            Explorations in high-performance frontend engineering, AI integrations, and real-time operations.
+            Explorations in high-performance frontend engineering, AI integrations, and Taiwan web showcases.
           </p>
         </div>
 
@@ -125,8 +142,21 @@ export default function Projects() {
                   <div className="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-accent-cyan/5 blur-3xl pointer-events-none"></div>
                   
                   <div className="space-y-4 relative z-10">
-                    <div className="font-mono text-[10px] text-accent-cyan uppercase tracking-widest">
-                      {project.subtitle}
+                    <div className="flex items-center justify-between">
+                      <div className="font-mono text-[10px] text-accent-cyan uppercase tracking-widest">
+                        {project.subtitle}
+                      </div>
+                      {project.liveLink && (
+                        <a 
+                          href={project.liveLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="p-1 rounded-md text-text-secondary hover:text-accent-cyan transition-colors"
+                          aria-label="Visit live website"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
                     <h3 className="font-heading text-xl sm:text-3xl font-bold text-text-primary">
                       {project.title}
@@ -217,21 +247,36 @@ export default function Projects() {
             <div className="p-6 space-y-6 text-left">
               
               {/* Grid Metadata */}
-              <div className="grid grid-cols-2 gap-4 bg-obsidian-glass/40 border border-obsidian-border/50 p-4 rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-obsidian-glass/40 border border-obsidian-border/50 p-4 rounded-lg">
                 <div>
                   <span className="font-mono text-[10px] text-text-secondary block">ROLE</span>
                   <span className="font-heading text-xs font-semibold text-text-primary">{selectedProject.role}</span>
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] text-text-secondary block">LINK</span>
-                  {selectedProject.link ? (
+                  <span className="font-mono text-[10px] text-text-secondary block">LIVE DEMO</span>
+                  {selectedProject.liveLink ? (
                     <a 
-                      href={selectedProject.link} 
+                      href={selectedProject.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="font-heading text-xs font-semibold text-accent-cyan hover:underline flex items-center gap-1 mt-0.5"
                     >
-                      GitHub Repo <ExternalLink className="w-3 h-3" />
+                      Visit Site <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <span className="font-heading text-xs font-semibold text-text-secondary">N/A</span>
+                  )}
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] text-text-secondary block">REPOSITORY</span>
+                  {selectedProject.gitLink ? (
+                    <a 
+                      href={selectedProject.gitLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="font-heading text-xs font-semibold text-accent-violet hover:underline flex items-center gap-1 mt-0.5"
+                    >
+                      GitHub Repo <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   ) : (
                     <span className="font-heading text-xs font-semibold text-text-secondary">N/A</span>

@@ -4,11 +4,37 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import ContactHud from './components/ContactHud';
+import { Sun, Moon } from 'lucide-react';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [cliLogs, setCliLogs] = useState<string[]>([]);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    const initialTheme = savedTheme || 'dark';
+    setTheme(initialTheme);
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   const floatingTags = [
     'Angular 18', 'React 19', 'CCNP Certified', 'Google Gemini',
@@ -155,11 +181,23 @@ export default function App() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Global navigation overlay/indicator */}
-            <div className="fixed top-6 right-6 z-40">
+            <div className="fixed top-6 right-6 z-40 flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 p-2.5 rounded-full flex items-center justify-center text-text-primary"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+              </button>
+
               <a 
                 href="/Ming_Hung_Fan_Resume.pdf"
                 target="_blank"
-                className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 font-mono text-[10px] tracking-widest uppercase px-4 py-2 rounded-full flex items-center gap-1.5"
+                className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 font-mono text-[10px] tracking-widest uppercase px-4 py-2.5 rounded-full flex items-center gap-1.5"
               >
                 <span>Resume PDF</span>
                 <span className="w-1 h-1 rounded-full bg-accent-cyan"></span>
@@ -167,10 +205,13 @@ export default function App() {
             </div>
 
             {/* Sections */}
-            <Hero onExploreClick={handleExploreScroll} />
+            <Hero onExploreClick={handleExploreScroll} onContactClick={() => setIsContactOpen(true)} />
             <Skills />
             <Projects />
             <Footer />
+
+            {/* Cyber Comms Drawer HUD */}
+            <ContactHud isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
           </motion.main>
         )}
       </AnimatePresence>
