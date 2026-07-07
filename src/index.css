@@ -12,6 +12,20 @@
   --accent-cyan: #0D9488;      /* Accessible Teal/Cyan for light background */
   --accent-violet: #7C3AED;    /* Accessible Violet for light background */
   --accent-cyan-glow: rgba(13, 148, 136, 0.2);
+
+  /* Cosmic Elements */
+  --saturn-body-start: #818CF8;
+  --saturn-body-end: #4F46E5;
+  --saturn-ring-start: #0D9488;
+  --saturn-ring-mid: #7C3AED;
+  --saturn-ring-end: #0D9488;
+  --mars-body-start: #FB7185;
+  --mars-body-end: #E11D48;
+  --mars-stripe: #FFE4E6;
+  --neptune-body-start: #93C5FD;
+  --neptune-body-end: #2563EB;
+  --jupiter-body-start: #D8B4FE;
+  --jupiter-body-end: #7E22CE;
 }
 
 .dark {
@@ -24,6 +38,20 @@
   --accent-cyan: #00F5D4;
   --accent-violet: #9D4EDD;
   --accent-cyan-glow: rgba(0, 245, 212, 0.4);
+
+  /* Cosmic Elements */
+  --saturn-body-start: #6366F1;
+  --saturn-body-end: #1E1B4B;
+  --saturn-ring-start: #00F5D4;
+  --saturn-ring-mid: #9D4EDD;
+  --saturn-ring-end: #00F5D4;
+  --mars-body-start: #F43F5E;
+  --mars-body-end: #4C0519;
+  --mars-stripe: #FDA4AF;
+  --neptune-body-start: #3B82F6;
+  --neptune-body-end: #1D4ED8;
+  --jupiter-body-start: #A855F7;
+  --jupiter-body-end: #581C87;
 }
 
 @layer base {
@@ -183,4 +211,50 @@ dialog[open]::backdrop {
 .border-glow-hover:hover {
   border-color: var(--accent-cyan);
   box-shadow: 0 0 20px var(--accent-cyan-glow);
+}
+
+/* Planet drifting animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-saturn {
+  0% {
+    transform: translateY(0px) rotate(-15deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) rotate(-12deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-15deg);
+  }
+}
+
+@keyframes float-mars {
+  0% {
+    transform: translateY(0px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(15px) translateX(-8px) rotate(14deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(10deg);
+  }
+}
+
+.animate-float-saturn {
+  animation: float-saturn 24s ease-in-out infinite;
+}
+
+.animate-float-mars {
+  animation: float-mars 30s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 160s linear infinite;
 }

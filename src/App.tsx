@@ -7,6 +7,20 @@ import Footer from './components/Footer';
 import ContactHud from './components/ContactHud';
 import { Sun, Moon } from 'lucide-react';
 
+interface PlanetConfig {
+  id: string;
+  size: number;
+  top: string;
+  left?: string;
+  right?: string;
+  hasRings: boolean;
+  ringAngle: number;
+  hasSatellite?: boolean;
+  gradientType: 'saturn' | 'mars' | 'neptune' | 'jupiter';
+  floatAnim: 'saturn' | 'mars';
+  spinSpeed: number;
+}
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [cliLogs, setCliLogs] = useState<string[]>([]);
@@ -30,6 +44,67 @@ export default function App() {
     setTheme(nextTheme);
     localStorage.setItem('theme', nextTheme);
   };
+
+  const planets: PlanetConfig[] = [
+    {
+      id: 'saturn-hero',
+      size: 480,
+      top: '4%',
+      right: '-8%',
+      hasRings: true,
+      ringAngle: -15,
+      hasSatellite: true,
+      gradientType: 'saturn',
+      floatAnim: 'saturn',
+      spinSpeed: 160
+    },
+    {
+      id: 'mars-transition',
+      size: 350,
+      top: '26%',
+      left: '-7%',
+      hasRings: false,
+      ringAngle: 25,
+      gradientType: 'mars',
+      floatAnim: 'mars',
+      spinSpeed: 200
+    },
+    {
+      id: 'neptune-skills',
+      size: 420,
+      top: '48%',
+      right: '-10%',
+      hasRings: true,
+      ringAngle: 15,
+      hasSatellite: false,
+      gradientType: 'neptune',
+      floatAnim: 'saturn',
+      spinSpeed: 180
+    },
+    {
+      id: 'jupiter-projects',
+      size: 380,
+      top: '70%',
+      left: '-6%',
+      hasRings: false,
+      ringAngle: -20,
+      gradientType: 'jupiter',
+      floatAnim: 'mars',
+      spinSpeed: 220
+    },
+    {
+      id: 'saturn-footer',
+      size: 440,
+      top: '88%',
+      right: '-8%',
+      hasRings: true,
+      ringAngle: -12,
+      hasSatellite: true,
+      gradientType: 'saturn',
+      floatAnim: 'saturn',
+      spinSpeed: 150
+    }
+  ];
 
   const floatingTags = [
     'Angular 18', 'React 19', 'CCNP Certified', 'Google Gemini',
@@ -170,10 +245,125 @@ export default function App() {
         ) : (
           <motion.main
             key="main"
+            className="relative min-h-screen overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
+            {/* Cosmic Background Layer - Large Floating Planets */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0 select-none">
+              {planets.map((planet) => {
+                const ringGradId = `ring-grad-${planet.id}`;
+                const bodyGradId = `body-grad-${planet.id}`;
+                
+                const positionStyle: React.CSSProperties = {
+                  width: `${planet.size}px`,
+                  height: `${planet.size}px`,
+                  top: planet.top,
+                  ...(planet.left ? { left: planet.left } : {}),
+                  ...(planet.right ? { right: planet.right } : {}),
+                };
+
+                return (
+                  <div
+                    key={planet.id}
+                    className={`absolute pointer-events-none select-none opacity-[0.15] dark:opacity-[0.09] ${
+                      planet.floatAnim === 'saturn' ? 'animate-float-saturn' : 'animate-float-mars'
+                    }`}
+                    style={positionStyle}
+                  >
+                    <svg
+                      viewBox="0 0 200 200"
+                      className="w-full h-full"
+                      style={{
+                        transform: `rotate(${planet.ringAngle}deg)`,
+                        animation: `spin-slow ${planet.spinSpeed}s linear infinite`
+                      }}
+                    >
+                      <defs>
+                        <linearGradient id={bodyGradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                          {planet.gradientType === 'saturn' && (
+                            <>
+                              <stop offset="0%" stopColor="var(--saturn-body-start)" />
+                              <stop offset="100%" stopColor="var(--saturn-body-end)" />
+                            </>
+                          )}
+                          {planet.gradientType === 'mars' && (
+                            <>
+                              <stop offset="0%" stopColor="var(--mars-body-start)" />
+                              <stop offset="100%" stopColor="var(--mars-body-end)" />
+                            </>
+                          )}
+                          {planet.gradientType === 'neptune' && (
+                            <>
+                              <stop offset="0%" stopColor="var(--neptune-body-start)" />
+                              <stop offset="100%" stopColor="var(--neptune-body-end)" />
+                            </>
+                          )}
+                          {planet.gradientType === 'jupiter' && (
+                            <>
+                              <stop offset="0%" stopColor="var(--jupiter-body-start)" />
+                              <stop offset="100%" stopColor="var(--jupiter-body-end)" />
+                            </>
+                          )}
+                        </linearGradient>
+                        
+                        <linearGradient id={ringGradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="var(--saturn-ring-start)" stopOpacity="0.8" />
+                          <stop offset="50%" stopColor="var(--saturn-ring-mid)" stopOpacity="0.1" />
+                          <stop offset="100%" stopColor="var(--saturn-ring-end)" stopOpacity="0.8" />
+                        </linearGradient>
+                      </defs>
+
+                      {/* Back half of the ring */}
+                      {planet.hasRings && (
+                        <path
+                          d="M 10,100 A 90,20 0 0,1 190,100"
+                          fill="none"
+                          stroke={`url(#${ringGradId})`}
+                          strokeWidth="8"
+                          strokeLinecap="round"
+                          opacity="0.35"
+                        />
+                      )}
+
+                      {/* Planet sphere */}
+                      <circle cx="100" cy="100" r="46" fill={`url(#${bodyGradId})`} />
+
+                      {/* Topographic details */}
+                      {(planet.gradientType === 'mars' || planet.gradientType === 'jupiter') && (
+                        <>
+                          <path d="M 58,70 Q 100,77 142,70" fill="none" stroke="var(--mars-stripe)" strokeWidth="1.8" opacity="0.3" strokeLinecap="round" />
+                          <path d="M 54,100 Q 100,109 146,100" fill="none" stroke="var(--mars-stripe)" strokeWidth="2.2" opacity="0.25" strokeLinecap="round" />
+                          <path d="M 58,130 Q 100,137 142,130" fill="none" stroke="var(--mars-stripe)" strokeWidth="1.5" opacity="0.3" strokeLinecap="round" />
+                        </>
+                      )}
+
+                      {/* Front half of the ring */}
+                      {planet.hasRings && (
+                        <path
+                          d="M 190,100 A 90,20 0 0,1 10,100"
+                          fill="none"
+                          stroke={`url(#${ringGradId})`}
+                          strokeWidth="8"
+                          strokeLinecap="round"
+                        />
+                      )}
+
+                      {/* Satellite Orbit Dot */}
+                      {planet.hasSatellite && (
+                        <>
+                          <circle cx="100" cy="100" r="75" fill="none" stroke="var(--border-color)" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.5" />
+                          <circle cx="28" cy="100" r="4.5" fill="var(--accent-cyan)" />
+                          <line x1="28" y1="100" x2="54" y2="100" stroke="var(--border-color)" strokeWidth="0.8" opacity="0.6" />
+                        </>
+                      )}
+                    </svg>
+                  </div>
+                );
+              })}
+            </div>
+
             {/* Global navigation overlay/indicator */}
             <div className="fixed top-6 right-6 z-40 flex items-center gap-3">
               <button
