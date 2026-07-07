@@ -59,11 +59,17 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
     };
 
     const draw = () => {
+      if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw network lines
-      ctx.strokeStyle = 'rgba(0, 245, 212, 0.04)';
-      ctx.lineWidth = 1;
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      // Determine colors based on active theme
+      const dotColor = isDark ? 'rgba(230, 237, 242, 0.25)' : 'rgba(15, 23, 42, 0.28)';
+      const cyanRgb = isDark ? '0, 245, 212' : '13, 148, 136';
+      const violetRgb = isDark ? '157, 78, 221' : '124, 58, 237';
+      const lineOpacityMult = isDark ? 0.12 : 0.35;
+      const mouseOpacityMult = isDark ? 0.2 : 0.48;
       
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
@@ -81,7 +87,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
         // Draw particle dot
         ctx.beginPath();
         ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(230, 237, 242, 0.2)';
+        ctx.fillStyle = dotColor;
         ctx.fill();
 
         // Connect particles
@@ -89,7 +95,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
           const p2 = particles[j];
           const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
           if (dist < 130) {
-            ctx.strokeStyle = `rgba(0, 245, 212, ${0.1 * (1 - dist / 130)})`;
+            ctx.strokeStyle = `rgba(${cyanRgb}, ${lineOpacityMult * (1 - dist / 130)})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -100,7 +106,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
         // Connect to mouse cursor
         const mouseDist = Math.hypot(p1.x - mouseRef.current.x, p1.y - mouseRef.current.y);
         if (mouseDist < 200) {
-          ctx.strokeStyle = `rgba(157, 78, 221, ${0.2 * (1 - mouseDist / 200)})`;
+          ctx.strokeStyle = `rgba(${violetRgb}, ${mouseOpacityMult * (1 - mouseDist / 200)})`;
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(mouseRef.current.x, mouseRef.current.y);

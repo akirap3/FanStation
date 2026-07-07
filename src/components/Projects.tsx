@@ -170,7 +170,7 @@ export default function Projects() {
                     {project.stack.slice(0, 4).map((tech) => (
                       <span 
                         key={tech}
-                        className="px-2.5 py-1 rounded bg-obsidian-card/60 border border-obsidian-border/50 font-mono text-[10px] text-text-secondary"
+                        className="px-2.5 py-1 rounded border font-mono text-[10px] bg-white dark:bg-[#0A0F19] border-black/10 dark:border-white/10 text-accent-cyan"
                       >
                         {tech}
                       </span>
@@ -219,13 +219,13 @@ export default function Projects() {
       <dialog 
         ref={dialogRef} 
         onCancel={handleCloseModal}
-        className="fixed inset-0 z-50 w-full max-w-3xl h-fit max-h-[85vh] p-0 overflow-y-auto outline-none rounded-xl border border-obsidian-border bg-obsidian-card/95 backdrop-blur-xl shadow-2xl flex-col"
+        className="fixed inset-0 z-50 w-full max-w-3xl h-fit max-h-[85vh] p-0 overflow-y-auto outline-none rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0D1117] backdrop-blur-xl shadow-2xl flex-col"
       >
         {selectedProject && (
           <div className="flex flex-col h-full w-full">
             
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-obsidian-border/50 sticky top-0 bg-obsidian-card/95 backdrop-blur-md z-10">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 dark:border-white/5 sticky top-0 bg-white dark:bg-[#0D1117] backdrop-blur-md z-10">
               <div>
                 <span className="font-mono text-[9px] text-accent-cyan uppercase tracking-widest">
                   {selectedProject.subtitle}
@@ -236,7 +236,7 @@ export default function Projects() {
               </div>
               <button 
                 onClick={handleCloseModal}
-                className="p-1.5 rounded-lg border border-obsidian-border bg-obsidian-glass/30 hover:border-accent-cyan/40 text-text-secondary hover:text-accent-cyan transition-colors"
+                className="p-1.5 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-accent-cyan text-text-secondary hover:text-accent-cyan transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
@@ -247,7 +247,7 @@ export default function Projects() {
             <div className="p-6 space-y-6 text-left">
               
               {/* Grid Metadata */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-obsidian-glass/40 border border-obsidian-border/50 p-4 rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 p-4 rounded-lg">
                 <div>
                   <span className="font-mono text-[10px] text-text-secondary block">ROLE</span>
                   <span className="font-heading text-xs font-semibold text-text-primary">{selectedProject.role}</span>
@@ -320,13 +320,13 @@ export default function Projects() {
               </div>
 
               {/* Tech Stack nodes */}
-              <div className="pt-2 border-t border-obsidian-border/50">
+              <div className="pt-2 border-t border-black/5 dark:border-white/5">
                 <span className="font-mono text-[10px] text-text-secondary block mb-2">SYSTEM TECH STACK</span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedProject.stack.map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-2 py-0.5 rounded bg-obsidian/40 border border-obsidian-border/40 font-mono text-[10px] text-accent-cyan"
+                      className="px-2.5 py-1 rounded border font-mono text-[10px] bg-white dark:bg-[#0A0F19] border-black/15 dark:border-white/20 text-accent-cyan"
                     >
                       {tech}
                     </span>

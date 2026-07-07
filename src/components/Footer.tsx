@@ -159,13 +159,13 @@ export default function Footer() {
 
         {/* Right Column - Console Terminal Footer */}
         <div className="dark lg:col-span-7 w-full space-y-4">
-          <div className="glass-panel rounded-xl overflow-hidden shadow-xl border border-obsidian-border">
+          <div className="bg-[#0D1117] rounded-xl overflow-hidden shadow-xl border border-white/10">
             
             {/* Terminal Header */}
-            <div className="h-9 bg-obsidian-card/40 px-4 flex items-center justify-between border-b border-obsidian-border/50">
+            <div className="h-9 bg-[#161B22] px-4 flex items-center justify-between border-b border-white/5">
               <div className="flex items-center gap-2">
                 <Terminal className="w-3.5 h-3.5 text-accent-cyan" />
-                <span className="font-mono text-[10px] text-text-secondary tracking-wide">
+                <span className="font-mono text-[10px] text-slate-400 tracking-wide">
                   system_shell_guest.log
                 </span>
               </div>
@@ -176,16 +176,16 @@ export default function Footer() {
             </div>
 
             {/* Terminal Screen log */}
-            <div ref={terminalContainerRef} className="p-5 font-mono text-[11px] sm:text-xs text-left space-y-2 h-[200px] overflow-y-auto bg-obsidian/40">
+            <div ref={terminalContainerRef} className="p-5 font-mono text-[11px] sm:text-xs text-left space-y-2 h-[200px] overflow-y-auto bg-[#0A0F19]">
               {history.map((line, idx) => (
                 <div 
                   key={idx} 
                   className={
                     line.type === 'input' 
-                      ? 'text-text-primary' 
+                      ? 'text-[#e6edf2]' 
                       : line.type === 'error' 
-                      ? 'text-rose-400' 
-                      : 'text-text-secondary'
+                      ? 'text-[#ff7b72]' 
+                      : 'text-[#8b949e]'
                   }
                 >
                   {line.text}
@@ -194,13 +194,13 @@ export default function Footer() {
             </div>
 
             {/* Command Pills bar */}
-            <div className="px-5 py-2.5 bg-obsidian-card/20 border-t border-obsidian-border/40 flex flex-wrap items-center gap-2 text-[10px] font-mono">
-              <span className="text-text-secondary/60">Quick command:</span>
+            <div className="px-5 py-2.5 bg-[#161B22] border-t border-white/5 flex flex-wrap items-center gap-2 text-[10px] font-mono">
+              <span className="text-slate-400">Quick command:</span>
               {quickCommands.map((qc) => (
                 <button
                   key={qc}
                   onClick={() => handleCommand(qc)}
-                  className="px-2 py-0.5 rounded border border-obsidian-border bg-obsidian-glass hover:border-accent-cyan/40 hover:text-accent-cyan transition-colors"
+                  className="px-2 py-0.5 rounded border border-[#30363d] bg-[#21262d] text-slate-300 hover:border-accent-cyan hover:text-accent-cyan transition-colors"
                 >
                   {qc}
                 </button>
@@ -208,7 +208,7 @@ export default function Footer() {
             </div>
 
             {/* Interactive Terminal input */}
-            <div className="flex items-center bg-obsidian-card/30 border-t border-obsidian-border/40 px-5 py-3 gap-2">
+            <div className="flex items-center bg-[#161B22]/50 border-t border-white/5 px-5 py-3 gap-2">
               <span className="font-mono text-xs text-accent-cyan select-none">guest@fanstation:~$</span>
               <input
                 type="text"
@@ -216,11 +216,11 @@ export default function Footer() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Type command..."
-                className="flex-1 bg-transparent outline-none border-none font-mono text-xs text-text-primary placeholder:text-text-secondary/30"
+                className="flex-1 bg-transparent outline-none border-none font-mono text-xs text-[#e6edf2] placeholder:text-slate-500"
               />
               <button 
                 onClick={() => handleCommand(inputValue)}
-                className="p-1 rounded text-text-secondary hover:text-accent-cyan transition-colors"
+                className="p-1 rounded text-slate-400 hover:text-accent-cyan transition-colors"
                 aria-label="Send command"
               >
                 <Send className="w-3.5 h-3.5" />

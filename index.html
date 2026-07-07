@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <title>Ming-Hung Fan | Senior Frontend Architect & Operations Specialist</title>
     <meta name="description" content="Portfolio of Ming-Hung Fan, an elite Senior Frontend Architect & Operations Specialist. Specializing in high-performance React/Angular, GenAI integrations, and network infrastructure." />
     <meta name="keywords" content="Ming-Hung Fan, Frontend Engineer, Operations Specialist, Angular 18, React 19, Google Gemini, CCNP, Cisco Routing, TypeScript, Toronto Developer" />
