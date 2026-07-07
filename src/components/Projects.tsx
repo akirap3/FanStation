@@ -222,7 +222,7 @@ export default function Projects() {
         className="fixed inset-0 z-50 w-[calc(100%-2rem)] sm:w-full max-w-3xl h-fit max-h-[85vh] p-0 overflow-y-auto outline-none rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0D1117] backdrop-blur-xl shadow-2xl"
       >
         {selectedProject && (
-          <div className="flex flex-col h-full w-full">
+          <div className="flex flex-col w-full">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 dark:border-white/5 sticky top-0 bg-white dark:bg-[#0D1117] backdrop-blur-md z-10">

@@ -1,6 +1,6 @@
-# Fan's Port
+# FanStation
 
-This is the repository for my high-end, premium portfolio website built around the design language—characterized by low-saturation cyber-minimalism, low-gravity floating motion, glassmorphism UI elements, and deep console interactions.
+This is the repository for my high-end, premium portfolio website built around a low-saturation cyber-minimalism design language—characterized by low-gravity floating motion, glassmorphism UI elements, and deep console interactions.
 
 The site is designed to demonstrate technical proficiency in web applications, Generative AI APIs, and systems routing infrastructure.
 
@@ -10,8 +10,11 @@ The site is designed to demonstrate technical proficiency in web applications, G
 
 *   **Phase 1 Splash Preloader:** An animated boot sequence displaying typewriter CLI telemetry logs alongside technical stack nodes drifting upwards to assemble a glowing engine core.
 *   **Reactive Canvas Mesh Hero:** An asymmetrical editorial layout featuring a background particle network that connects dynamically and moves relative to the visitor's cursor.
+*   **Hiring Telemetry Panel:** An interactive floating glassmorphism dashboard triggered by the global "Available" status badge, presenting notice period, target roles (Frontend / Cloud / FullStack), location preferences, and leadership experience.
+*   **Cosmic Background Layer:** Floating vector planets featuring slow rotations, satellites, and orbit rings that float dynamically behind content sections.
 *   **IDE-Style Skills Matrix:** A simulation of a code editor (running typescript, json, and yaml tabs) where visitors can hover over code structures to dynamically inspect business value metrics parsed on the console screen below.
-*   **Case Study Dialogs:** A responsive, alternating grid layout of architectural projects utilizing native HTML5 `<dialog>` elements styled with modern top-layer entry transitions.
+*   **Case Study Dialogs:** A responsive, alternating grid layout of architectural projects utilizing native HTML5 `<dialog>` elements styled with modern top-layer entry transitions and WebKit compatibility fixes.
+*   **Cyber Comms HUD Drawer:** A real-time slide-out communications panel displaying connection stats, direct email copying, and social media channels.
 *   **Interactive Terminal Footer:** A simulated guest command shell that processes visitor queries (`help`, `about`, `contact`, `clear`) in real-time. Includes clipboard copy triggers that fire confetti particles.
 
 ---
@@ -70,6 +73,8 @@ npm run preview
 │   │   ├── Hero.tsx            # Floating grid canvas & metrics
 │   │   ├── Skills.tsx          # IDE simulator & Value Parser
 │   │   ├── Projects.tsx        # Alternating cards & Dialog modals
+│   │   ├── ContactHud.tsx      # Slide-out cyber contact HUD panel
+│   │   ├── HiringModal.tsx     # Recruiter telemetry status dialog
 │   │   └── Footer.tsx          # Contact console shell footer
 │   ├── App.tsx                 # Preloader & main section coordinator
 │   ├── index.css               # Core styling tokens & animations
