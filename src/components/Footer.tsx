@@ -43,7 +43,7 @@ export default function Footer() {
         break;
       case 'about':
         newLines.push(
-          { type: 'output', text: 'Ming-Hung Fan is a Senior Frontend Engineer & Operations Specialist.' },
+          { type: 'output', text: 'Ming-Hung Fan is a Frontend Engineer & Operations Specialist.' },
           { type: 'output', text: 'Certified CCNP Network Engineer with a 4.0 GPA from Seneca Polytechnic (Toronto).' },
           { type: 'output', text: 'Expertise: React 19, Angular 18, TypeScript, Python, and Cisco/Juniper routing infrastructures.' }
         );
@@ -109,7 +109,7 @@ export default function Footer() {
               Ming-Hung Fan
             </h4>
             <p className="font-body text-xs text-text-secondary">
-              Senior Frontend Architect & Operations Specialist
+              Frontend Architect & Operations Specialist
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button 
                 onClick={copyEmailToClipboard}
-                className="group relative flex items-center justify-between gap-4 px-4 py-3 rounded-lg border border-obsidian-border bg-obsidian-glass/60 text-xs font-mono transition-colors hover:border-accent-cyan/30 text-text-primary"
+                className="group relative flex items-center justify-between gap-4 px-4 py-3 rounded-lg glass-card border-glow-hover text-xs font-mono transition-colors text-text-primary"
               >
                 <span className="flex items-center gap-2">
                   akirapf3@gmail.com
@@ -144,7 +144,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/ming-hung-fan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-4 px-4 py-3 rounded-lg border border-obsidian-border bg-obsidian-glass/60 text-xs font-mono transition-colors hover:border-accent-violet/30 text-text-primary"
+                className="flex items-center justify-between gap-4 px-4 py-3 rounded-lg glass-card border-glow-hover text-xs font-mono transition-colors text-text-primary"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-accent-violet" />

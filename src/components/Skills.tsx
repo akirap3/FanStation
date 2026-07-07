@@ -323,20 +323,20 @@ export default function Skills() {
             
             {/* Tab Header bar */}
             <div className="h-10 bg-[#161B22] border-b border-white/5 flex items-center justify-between px-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80"></span>
                 <span className="w-3 h-3 rounded-full bg-amber-500/80"></span>
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
               </div>
-              <div className="font-mono text-xs text-slate-400">
+              <div className="font-mono text-[10px] sm:text-xs text-slate-400 truncate max-w-[180px] sm:max-w-none ml-2">
                 ~/fanstation/src/ecosystem/{activeFile.name}
               </div>
-              <div className="w-12"></div>
+              <div className="w-8 sm:w-12"></div>
             </div>
 
             {/* Code Editor Panels */}
-            <div className="flex-1 p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-left relative bg-[#0A0F19]">
-              <div className="absolute top-4 right-4 text-[10px] text-slate-600 pointer-events-none select-none">
+            <div className="flex-1 p-4 sm:p-6 font-mono text-[11px] sm:text-sm leading-relaxed overflow-x-auto text-left relative bg-[#0A0F19]">
+              <div className="absolute top-4 right-4 text-[10px] text-slate-600 pointer-events-none select-none hidden sm:block">
                 {activeFile.type.toUpperCase()} EDITOR
               </div>
               
@@ -345,19 +345,19 @@ export default function Skills() {
                   key={lineIdx}
                   onMouseEnter={() => setHoveredLineIndex(lineIdx)}
                   onMouseLeave={() => setHoveredLineIndex(null)}
-                  className={`flex gap-6 py-0.5 px-2 rounded -mx-2 transition-colors duration-150 group cursor-default ${
+                  className={`flex items-start gap-3 sm:gap-6 py-0.5 px-2 rounded -mx-2 transition-colors duration-150 group cursor-default ${
                     hoveredLineIndex === lineIdx 
                       ? 'bg-white/[0.03]' 
                       : ''
                   }`}
                 >
                   {/* Line Number */}
-                  <span className="w-6 text-right select-none text-slate-500 font-light border-r border-white/5 pr-3">
+                  <span className="w-6 flex-shrink-0 text-right select-none text-slate-500 font-light border-r border-white/5 pr-2 sm:pr-3">
                     {lineIdx + 1}
                   </span>
                   
                   {/* Code tokens */}
-                  <span className="flex-1 whitespace-pre text-[#c9d1d9]">
+                  <span className="flex-1 whitespace-pre-wrap break-words text-[#c9d1d9]">
                     {line.length === 0 ? ' ' : line.map((token, tokenIdx) => (
                       <span key={tokenIdx} className={getHighlightClass(token.highlightType)}>
                         {token.text}

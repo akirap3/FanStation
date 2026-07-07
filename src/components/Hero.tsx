@@ -141,7 +141,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 lg:px-24">
+    <section className="relative min-h-screen flex items-start lg:items-center justify-center overflow-hidden px-6 lg:px-24 pt-28 pb-16 lg:py-0">
       {/* Interactive Network Mesh Background */}
       <canvas 
         ref={canvasRef} 
@@ -157,14 +157,6 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
         {/* Asymmetrical Left Content Column */}
         <div className="lg:col-span-8 space-y-8 text-left">
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-obsidian-border bg-obsidian-glass backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse"></span>
-            <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary font-semibold">
-              Available for Opportunities
-            </span>
-          </div>
-
           {/* Heading */}
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] text-text-primary">
             Ming-Hung Fan <br />
@@ -176,7 +168,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
 
           {/* Body Description */}
           <p className="font-body text-base sm:text-lg max-w-xl text-text-secondary leading-relaxed">
-            Ming-Hung Fan is a senior frontend architect and system operations specialist. He designs modular frontends that deliver high-velocity UX and configures highly secure infrastructure to ensure robust system stability.
+            Ming-Hung Fan is a frontend architect and system operations specialist. He designs modular frontends that deliver high-velocity UX and configures highly secure infrastructure to ensure robust system stability.
           </p>
 
           {/* Call to Actions */}

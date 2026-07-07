@@ -180,7 +180,7 @@ export default function Projects() {
 
                 {/* Technical Outcomes Panel (Asymmetrical Small Side Column) */}
                 <div 
-                  className={`lg:col-span-5 flex flex-col justify-between bg-obsidian-card/30 border border-obsidian-border/40 p-8 rounded-xl text-left ${
+                  className={`lg:col-span-5 flex flex-col justify-between glass-card border-glow-hover p-8 rounded-xl text-left ${
                     isEven ? 'lg:order-2' : 'lg:order-1'
                   }`}
                 >
@@ -219,7 +219,7 @@ export default function Projects() {
       <dialog 
         ref={dialogRef} 
         onCancel={handleCloseModal}
-        className="fixed inset-0 z-50 w-full max-w-3xl h-fit max-h-[85vh] p-0 overflow-y-auto outline-none rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0D1117] backdrop-blur-xl shadow-2xl flex-col"
+        className="fixed inset-0 z-50 w-[calc(100%-2rem)] sm:w-full max-w-3xl h-fit max-h-[85vh] p-0 overflow-y-auto outline-none rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0D1117] backdrop-blur-xl shadow-2xl"
       >
         {selectedProject && (
           <div className="flex flex-col h-full w-full">

@@ -5,7 +5,9 @@
 :root {
   --bg-color: #F4F6F9;
   --card-bg: #FFFFFF;
-  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
   --border-color: rgba(0, 0, 0, 0.08);
   --text-primary: #0F172A;
   --text-secondary: #475569;
@@ -14,24 +16,34 @@
   --accent-cyan-glow: rgba(13, 148, 136, 0.2);
 
   /* Cosmic Elements */
-  --saturn-body-start: #818CF8;
-  --saturn-body-end: #4F46E5;
+  --earth-sea-start: #3B82F6;
+  --earth-sea-end: #1D4ED8;
+  --earth-land: #10B981;
+  --earth-clouds: rgba(255, 255, 255, 0.65);
+  
+  --saturn-body-start: #F59E0B;
+  --saturn-body-end: #78350F;
+  --saturn-band: #B45309;
   --saturn-ring-start: #0D9488;
   --saturn-ring-mid: #7C3AED;
   --saturn-ring-end: #0D9488;
-  --mars-body-start: #FB7185;
-  --mars-body-end: #E11D48;
-  --mars-stripe: #FFE4E6;
-  --neptune-body-start: #93C5FD;
-  --neptune-body-end: #2563EB;
-  --jupiter-body-start: #D8B4FE;
-  --jupiter-body-end: #7E22CE;
+
+  --uranus-body-start: #67E8F9;
+  --uranus-body-end: #0891B2;
+  --uranus-swirl: #E0F7FA;
+
+  --galaxy-core-start: #F3E8FF;
+  --galaxy-core-end: #7E22CE;
+  --galaxy-arm-start: #7C3AED;
+  --galaxy-arm-end: #0D9488;
 }
 
 .dark {
   --bg-color: #0A0F19;
   --card-bg: #0D1117;
-  --glass-bg: rgba(22, 27, 34, 0.75);
+  --glass-bg: rgba(13, 20, 35, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
   --border-color: rgba(255, 255, 255, 0.08);
   --text-primary: #E6EDF2;
   --text-secondary: #8B949E;
@@ -40,18 +52,26 @@
   --accent-cyan-glow: rgba(0, 245, 212, 0.4);
 
   /* Cosmic Elements */
-  --saturn-body-start: #6366F1;
-  --saturn-body-end: #1E1B4B;
+  --earth-sea-start: #1D4ED8;
+  --earth-sea-end: #1E3A8A;
+  --earth-land: #059669;
+  --earth-clouds: rgba(255, 255, 255, 0.4);
+
+  --saturn-body-start: #F59E0B;
+  --saturn-body-end: #78350F;
+  --saturn-band: #B45309;
   --saturn-ring-start: #00F5D4;
   --saturn-ring-mid: #9D4EDD;
   --saturn-ring-end: #00F5D4;
-  --mars-body-start: #F43F5E;
-  --mars-body-end: #4C0519;
-  --mars-stripe: #FDA4AF;
-  --neptune-body-start: #3B82F6;
-  --neptune-body-end: #1D4ED8;
-  --jupiter-body-start: #A855F7;
-  --jupiter-body-end: #581C87;
+
+  --uranus-body-start: #06B6D4;
+  --uranus-body-end: #083344;
+  --uranus-swirl: #22D3EE;
+
+  --galaxy-core-start: #FFFFFF;
+  --galaxy-core-end: #A855F7;
+  --galaxy-arm-start: #9D4EDD;
+  --galaxy-arm-end: #00F5D4;
 }
 
 @layer base {
@@ -91,18 +111,20 @@
 /* Glassmorphism Styles */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-input {
