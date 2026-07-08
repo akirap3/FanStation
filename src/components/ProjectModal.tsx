@@ -1,12 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { X, ExternalLink } from 'lucide-react';
-import type { Project } from '../types/project';
-
-interface ProjectModalProps {
-  project: Project | null;
-  isOpen: boolean;
-  onClose: () => void;
-}
+import type { ProjectModalProps } from '../types';
 
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);

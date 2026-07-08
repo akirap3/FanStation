@@ -1,10 +1,6 @@
 import { Sun, Moon } from 'lucide-react';
-
-interface NavbarProps {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-  onAvailabilityClick: () => void;
-}
+import type { NavbarProps } from '../types';
+import { profile } from '../data/profile';
 
 export default function Navbar({ theme, toggleTheme, onAvailabilityClick }: NavbarProps) {
   return (
@@ -37,7 +33,7 @@ export default function Navbar({ theme, toggleTheme, onAvailabilityClick }: Navb
         </button>
 
         <a 
-          href="/Ming_Hung_Fan_Resume.pdf"
+          href={profile.basics.resumeUrl}
           target="_blank"
           className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 font-mono text-[10px] tracking-widest uppercase px-4 py-2.5 rounded-full flex items-center gap-1.5"
         >

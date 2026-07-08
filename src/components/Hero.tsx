@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { ArrowUpRight, Mail } from 'lucide-react';
+import type { Particle } from '../types';
+import { profile } from '../data/profile';
 
 const Github = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -15,14 +17,6 @@ const Linkedin = (props: React.SVGProps<SVGSVGElement>) => (
     <circle cx="4" cy="4" r="2" />
   </svg>
 );
-
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  radius: number;
-}
 
 export default function Hero({ onExploreClick, onContactClick }: { onExploreClick: () => void; onContactClick: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -159,7 +153,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
           
           {/* Heading */}
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] text-text-primary">
-            Ming-Hung Fan <br />
+            {profile.basics.name} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-violet">
               Architecting Fullstacks
             </span> <br />
@@ -168,7 +162,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
 
           {/* Body Description */}
           <p className="font-body text-base sm:text-lg max-w-xl text-text-secondary leading-relaxed">
-            Ming-Hung Fan is a fullstack architect and system operations specialist. He designs modular fullstacks that deliver high-velocity UX and configures highly secure infrastructure to ensure robust system stability.
+            {profile.basics.heroBio}
           </p>
 
           {/* Call to Actions */}
@@ -202,17 +196,17 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
             
             <div className="space-y-6 text-left">
               <div>
-                <div className="font-mono text-2xl font-bold text-accent-cyan">99.9%</div>
+                <div className="font-mono text-2xl font-bold text-accent-cyan">{profile.telemetryStats.systemUptime}</div>
                 <div className="font-heading text-xs uppercase tracking-wider text-text-secondary mt-1">System Uptime Maintained</div>
               </div>
               
               <div className="border-t border-obsidian-border pt-4">
-                <div className="font-mono text-2xl font-bold text-accent-violet">20%</div>
+                <div className="font-mono text-2xl font-bold text-accent-violet">{profile.telemetryStats.stabilityBoost}</div>
                 <div className="font-heading text-xs uppercase tracking-wider text-text-secondary mt-1">Rebuild Stability Boost</div>
               </div>
 
               <div className="border-t border-obsidian-border pt-4">
-                <div className="font-mono text-2xl font-bold text-text-primary">100+</div>
+                <div className="font-mono text-2xl font-bold text-text-primary">{profile.telemetryStats.personnelLed}</div>
                 <div className="font-heading text-xs uppercase tracking-wider text-text-secondary mt-1">Personnel Led & Managed</div>
               </div>
             </div>
@@ -221,7 +215,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
           {/* Social Links */}
           <div className="flex items-center justify-start lg:justify-center gap-6 px-4">
             <a 
-              href="https://github.com/akirap3" 
+              href={profile.basics.githubUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-text-secondary hover:text-accent-cyan transition-colors duration-200"
@@ -230,7 +224,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
               <Github className="w-5 h-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/ming-hung-fan" 
+              href={profile.basics.linkedinUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-text-secondary hover:text-accent-cyan transition-colors duration-200"
@@ -239,7 +233,7 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="mailto:akirapf3@gmail.com" 
+              href={`mailto:${profile.basics.email}`} 
               className="text-text-secondary hover:text-accent-cyan transition-colors duration-200"
               aria-label="Send Email"
             >

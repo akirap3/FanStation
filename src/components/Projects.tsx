@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Cpu } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
-import type { Project } from '../types/project';
+import type { Project } from '../types';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

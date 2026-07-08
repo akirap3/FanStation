@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-
-interface PreloaderProps {
-  onComplete: () => void;
-}
+import type { PreloaderProps } from '../types';
 
 const floatingTags = [
   'Angular 18', 'React 19', 'CCNP Certified', 'Google Gemini',

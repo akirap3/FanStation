@@ -1,11 +1,5 @@
 import { ExternalLink, CheckCircle2, ArrowRight } from 'lucide-react';
-import type { Project } from '../types/project';
-
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-  onReadDetails: (project: Project) => void;
-}
+import type { ProjectCardProps } from '../types';
 
 export default function ProjectCard({ project, index, onReadDetails }: ProjectCardProps) {
   const isEven = index % 2 === 0;

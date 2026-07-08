@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Calendar, MapPin, Briefcase, Clock, Send, ShieldCheck } from 'lucide-react';
-
-interface HiringModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onContactClick: () => void;
-}
+import { X, Clock, Briefcase, MapPin, ShieldCheck, Send } from 'lucide-react';
+import type { HiringModalProps } from '../types';
+import { profile } from '../data/profile';
 
 export default function HiringModal({ isOpen, onClose, onContactClick }: HiringModalProps) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
@@ -60,10 +56,10 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
           {/* Profile Summary */}
           <div className="space-y-1">
             <h3 className="font-heading text-lg font-bold text-text-primary font-sans">
-              Ming-Hung Fan
+              {profile.basics.name}
             </h3>
             <p className="text-[11px] text-text-secondary">
-              Fullstack Engineer & Systems Operator
+              {profile.basics.secondaryTitle}
             </p>
           </div>
 
@@ -75,7 +71,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
                 <span>Availability</span>
               </div>
               <span className="font-semibold text-accent-cyan bg-accent-cyan-glow/20 px-2 py-0.5 rounded text-[10px]">
-                Immediate
+                {profile.hiring.availability}
               </span>
             </div>
 
@@ -85,7 +81,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
                 <span>Target Roles</span>
               </div>
               <span className="font-semibold text-text-primary text-[10px] text-right">
-                FullStack / Cloud / Frontend 
+                {profile.hiring.targetRoles}
               </span>
             </div>
 
@@ -95,7 +91,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
                 <span>Preferences</span>
               </div>
               <span className="font-semibold text-text-primary text-[10px]">
-                Onsite / Remote / Hybrid (Canada)
+                {profile.hiring.preferences}
               </span>
             </div>
 
@@ -105,14 +101,14 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
                 <span>Leadership</span>
               </div>
               <span className="font-semibold text-text-primary text-[10px] text-right">
-                Ops Lead & 10Y Military Exp.
+                {profile.hiring.leadership}
               </span>
             </div>
           </div>
 
           {/* Bio blurb */}
-          <div className="text-[11px] text-text-secondary leading-relaxed bg-black/[0.01] dark:bg-white/[0.01] border border-black/5 dark:border-white/5 p-3.5 rounded-lg">
-            Seeking roles in FullStack, Frontend, or Cloud-focused software companies where I can collaborate with teams to build full-scale applications. I aim to bring my specialized engineering skills and leadership value to drive growth across products, platforms, and teams.
+          <div className="text-[11px] text-text-secondary leading-relaxed bg-black/[0.01] dark:bg-white/[0.01] border border-black/5 dark:border-white/5 p-3.5 rounded-lg font-sans">
+            {profile.hiring.bioBlurb}
           </div>
 
           {/* Actions */}

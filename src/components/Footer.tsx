@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import TerminalConsole from './TerminalConsole';
+import { profile } from '../data/profile';
 
 export default function Footer() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -16,7 +17,7 @@ export default function Footer() {
   };
 
   const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText('akirapf3@gmail.com');
+    navigator.clipboard.writeText(profile.basics.email);
     setCopiedEmail(true);
     triggerConfetti();
     // Dispatch custom DOM event to trigger decoupled TerminalConsole command
@@ -36,10 +37,10 @@ export default function Footer() {
         <div className="lg:col-span-5 text-left space-y-6">
           <div className="space-y-2">
             <h4 className="font-heading text-2xl font-bold text-text-primary">
-              Ming-Hung Fan
+              {profile.basics.name}
             </h4>
             <p className="font-body text-xs text-text-secondary">
-              Fullstack Engineer & Operations Specialist
+              {profile.basics.primaryTitle}
             </p>
           </div>
 
@@ -58,7 +59,7 @@ export default function Footer() {
                 className="group relative flex items-center justify-between gap-4 px-4 py-3 rounded-lg glass-card border-glow-hover text-xs font-mono transition-colors text-text-primary"
               >
                 <span className="flex items-center gap-2">
-                  akirapf3@gmail.com
+                  {profile.basics.email}
                   {copiedEmail ? (
                     <Check className="w-3.5 h-3.5 text-accent-cyan animate-bounce" />
                   ) : (
@@ -71,7 +72,7 @@ export default function Footer() {
               </button>
 
               <a 
-                href="https://linkedin.com/in/ming-hung-fan"
+                href={profile.basics.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between gap-4 px-4 py-3 rounded-lg glass-card border-glow-hover text-xs font-mono transition-colors text-text-primary"
@@ -83,7 +84,7 @@ export default function Footer() {
           </div>
 
           <div className="text-[10px] font-mono text-text-secondary/50 pt-8">
-            © {new Date().getFullYear()} Ming-Hung Fan. All Rights Reserved. Built with React & Tailwind.
+            © {new Date().getFullYear()} {profile.basics.name}. All Rights Reserved. Built with React & Tailwind.
           </div>
         </div>
 

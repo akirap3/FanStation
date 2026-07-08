@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CosmicBackgroundProps } from '../types';
 
 interface PlanetConfig {
   id: string;
@@ -12,10 +13,6 @@ interface PlanetConfig {
   gradientType: 'earth' | 'saturn' | 'uranus';
   floatAnim: 'saturn' | 'mars';
   spinSpeed: number;
-}
-
-interface CosmicBackgroundProps {
-  theme: 'light' | 'dark';
 }
 
 const planets: PlanetConfig[] = [

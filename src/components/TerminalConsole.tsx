@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal, Send } from 'lucide-react';
 import confetti from 'canvas-confetti';
-
-interface TerminalLine {
-  type: 'input' | 'output' | 'error';
-  text: string;
-}
+import type { TerminalLine } from '../types';
+import { profile } from '../data/profile';
 
 const quickCommands = ['help', 'about', 'contact', 'clear'];
 
@@ -51,16 +48,16 @@ export default function TerminalConsole() {
         break;
       case 'about':
         newLines.push(
-          { type: 'output', text: 'Ming-Hung Fan is a Fullstack Engineer & Operations Specialist.' },
+          { type: 'output', text: `${profile.basics.name} is a ${profile.basics.primaryTitle}.` },
           { type: 'output', text: 'Certified CCNP Network Engineer with a 4.0 GPA from Seneca Polytechnic (Toronto).' },
           { type: 'output', text: 'Expertise: React 19, Angular 18, TypeScript, Python, and Cisco/Juniper routing infrastructures.' }
         );
         break;
       case 'contact':
         newLines.push(
-          { type: 'output', text: 'Email: akirapf3@gmail.com' },
-          { type: 'output', text: 'LinkedIn: linkedin.com/in/ming-hung-fan' },
-          { type: 'output', text: 'GitHub: github.com/akirap3' }
+          { type: 'output', text: `Email: ${profile.basics.email}` },
+          { type: 'output', text: `LinkedIn: ${profile.basics.linkedinUrl.replace('https://', '')}` },
+          { type: 'output', text: `GitHub: ${profile.basics.githubUrl.replace('https://', '')}` }
         );
         triggerConfetti();
         break;
