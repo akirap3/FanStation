@@ -161,14 +161,14 @@ export default function Hero({ onExploreClick, onContactClick }: { onExploreClic
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] text-text-primary">
             Ming-Hung Fan <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-violet">
-              Architecting frontends
+              Architecting Fullstacks
             </span> <br />
-            & systems that scale.
+            & Systems That Scale
           </h1>
 
           {/* Body Description */}
           <p className="font-body text-base sm:text-lg max-w-xl text-text-secondary leading-relaxed">
-            Ming-Hung Fan is a frontend architect and system operations specialist. He designs modular frontends that deliver high-velocity UX and configures highly secure infrastructure to ensure robust system stability.
+            Ming-Hung Fan is a fullstack architect and system operations specialist. He designs modular fullstacks that deliver high-velocity UX and configures highly secure infrastructure to ensure robust system stability.
           </p>
 
           {/* Call to Actions */}

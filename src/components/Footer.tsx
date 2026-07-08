@@ -43,7 +43,7 @@ export default function Footer() {
         break;
       case 'about':
         newLines.push(
-          { type: 'output', text: 'Ming-Hung Fan is a Frontend Engineer & Operations Specialist.' },
+          { type: 'output', text: 'Ming-Hung Fan is a Fullstack Engineer & Operations Specialist.' },
           { type: 'output', text: 'Certified CCNP Network Engineer with a 4.0 GPA from Seneca Polytechnic (Toronto).' },
           { type: 'output', text: 'Expertise: React 19, Angular 18, TypeScript, Python, and Cisco/Juniper routing infrastructures.' }
         );
@@ -109,7 +109,7 @@ export default function Footer() {
               Ming-Hung Fan
             </h4>
             <p className="font-body text-xs text-text-secondary">
-              Frontend Architect & Operations Specialist
+              Fullstack Engineer & Operations Specialist
             </p>
           </div>
 

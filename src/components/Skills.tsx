@@ -20,7 +20,7 @@ export default function Skills() {
       type: 'typescript',
       icon: FileCode,
       impactTitle: 'Frontend & UI Performance',
-      impactMessage: 'Angular 18 legacy system rebuild increased stability by 20%. Modular Angular Material / Tailwind components boosted cross-team feature delivery speed by 25% and saved 6+ dev hours weekly via automation.',
+      impactMessage: 'Angular legacy system rebuild increased stability by 20%. Modular Angular Material / Tailwind components boosted cross-team feature delivery speed by 25% and saved 6+ dev hours weekly via automation.',
       codeLines: [
         [
           { text: 'import', highlightType: 'keyword' },

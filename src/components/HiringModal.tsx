@@ -63,7 +63,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
               Ming-Hung Fan
             </h3>
             <p className="text-[11px] text-text-secondary">
-              Frontend Architect & Systems Operator
+              Fullstack Engineer & Systems Operator
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
                 <span>Target Roles</span>
               </div>
               <span className="font-semibold text-text-primary text-[10px] text-right">
-                Frontend / Cloud / FullStack
+                FullStack / Cloud / Frontend 
               </span>
             </div>
 
@@ -112,7 +112,7 @@ export default function HiringModal({ isOpen, onClose, onContactClick }: HiringM
 
           {/* Bio blurb */}
           <div className="text-[11px] text-text-secondary leading-relaxed bg-black/[0.01] dark:bg-white/[0.01] border border-black/5 dark:border-white/5 p-3.5 rounded-lg">
-            Seeking roles in Frontend, FullStack, or Cloud-focused software companies where I can collaborate with teams to build full-scale applications. I aim to bring my specialized engineering skills and leadership value to drive growth across products, platforms, and teams.
+            Seeking roles in FullStack, Frontend, or Cloud-focused software companies where I can collaborate with teams to build full-scale applications. I aim to bring my specialized engineering skills and leadership value to drive growth across products, platforms, and teams.
           </div>
 
           {/* Actions */}

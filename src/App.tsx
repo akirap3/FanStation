@@ -184,10 +184,10 @@ export default function App() {
   const logSequence = [
     '>> INITIALIZING ANTIGRAVITY ENGINE...',
     '>> LOADING RESUME: Ming_Hung_Fan_Resume.pdf',
-    '>> PARSING frontend_architect_profile.json',
+    '>> PARSING fullstack_architect_profile.json',
     '>> DETECTED: 4 major career eras, 22 technical nodes',
     '>> COMPILING core technical stack...',
-    '>> SYSTEM READY. BOOTING FRONTEND INTERFACE.'
+    '>> SYSTEM READY. BOOTING FULLSTACK INTERFACE.'
   ];
 
   useEffect(() => {

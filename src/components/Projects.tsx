@@ -26,7 +26,7 @@ export default function Projects() {
       title: "Sir Isaac's Vocab Studio",
       subtitle: "React 19 & Google Gemini 2.5 Flash",
       summary: "An interactive AI learning environment utilizing generative language models for automatic vocabulary synthesis and client-side database caching.",
-      role: "Lead Frontend Engineer",
+      role: "Fullstack Engineer",
       stack: ["React 19", "Google Gemini API", "IndexedDB", "Tailwind CSS"],
       challenge: "High round-trip network latency from live LLM prompts and heavy token consumption costs for repetitive query patterns.",
       solution: "Engineered a custom cache controller using client-side IndexedDB to store 50MB+ of vocabulary datasets. Built high-fidelity canvas mapping layers to export graphic flashcards as clean PDFs and PNGs.",
@@ -67,7 +67,7 @@ export default function Projects() {
       title: "ShengShi Food-Sharing Hub",
       subtitle: "React, Firebase & Algolia Search",
       summary: "A serverless food exchange portal deploying geo-spatial searches and QR claims checking.",
-      role: "Operations & Frontend Lead",
+      role: "Frontend Engineer",
       stack: ["React", "Redux", "Firebase Auth", "Firestore", "Algolia", "Google Maps API"],
       challenge: "Ensuring secure food transactions and low latency geographic queries for nearby donation centers.",
       solution: "Implemented Algolia search index hooks for localized queries, coordinated with Firebase Serverless functions and Google Maps API. Designed secure QR claim keys.",
@@ -117,7 +117,7 @@ export default function Projects() {
             Architectural Case Studies.
           </h2>
           <p className="font-body text-text-secondary max-w-xl text-sm sm:text-base leading-relaxed">
-            Explorations in high-performance frontend engineering, AI integrations, and Taiwan web showcases.
+            Explorations in high-performance fullstack engineering, AI integrations, and Taiwan web showcases.
           </p>
         </div>
 
