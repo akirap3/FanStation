@@ -38,6 +38,7 @@ export interface NavbarProps {
   theme: 'light' | 'dark';
   toggleTheme: () => void;
   onAvailabilityClick: () => void;
+  onResumeClick: () => void;
 }
 
 export interface ProjectCardProps {
@@ -56,4 +57,9 @@ export interface HiringModalProps {
   isOpen: boolean;
   onClose: () => void;
   onContactClick: () => void;
+}
+
+export interface ResumeModalProps {
+  isOpen: boolean;
+  onClose: () => void;
 }

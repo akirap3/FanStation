@@ -1,8 +1,7 @@
 import { Sun, Moon } from 'lucide-react';
 import type { NavbarProps } from '../types';
-import { profile } from '../data/profile';
 
-export default function Navbar({ theme, toggleTheme, onAvailabilityClick }: NavbarProps) {
+export default function Navbar({ theme, toggleTheme, onAvailabilityClick, onResumeClick }: NavbarProps) {
   return (
     <>
       {/* Global navigation overlays */}
@@ -32,14 +31,13 @@ export default function Navbar({ theme, toggleTheme, onAvailabilityClick }: Navb
           )}
         </button>
 
-        <a 
-          href={profile.basics.resumeUrl}
-          target="_blank"
-          className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 font-mono text-[10px] tracking-widest uppercase px-4 py-2.5 rounded-full flex items-center gap-1.5"
+        <button 
+          onClick={onResumeClick}
+          className="glass-card hover:border-accent-cyan/40 hover:text-accent-cyan transition-all duration-300 font-mono text-[10px] tracking-widest uppercase px-4 py-2.5 rounded-full flex items-center gap-1.5 pointer-events-auto animate-fade-in"
         >
           <span>Resume PDF</span>
           <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse"></span>
-        </a>
+        </button>
       </div>
     </>
   );

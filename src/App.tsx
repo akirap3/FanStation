@@ -9,11 +9,13 @@ import HiringModal from './components/HiringModal';
 import Preloader from './components/Preloader';
 import CosmicBackground from './components/CosmicBackground';
 import Navbar from './components/Navbar';
+import ResumeModal from './components/ResumeModal';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isHiringOpen, setIsHiringOpen] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('theme');
     return (saved === 'light' || saved === 'dark') ? saved : 'dark';
@@ -62,6 +64,7 @@ export default function App() {
               theme={theme}
               toggleTheme={toggleTheme}
               onAvailabilityClick={() => setIsHiringOpen(true)}
+              onResumeClick={() => setIsResumeOpen(true)}
             />
 
             {/* Sections */}
@@ -75,6 +78,9 @@ export default function App() {
 
             {/* Recruiter Hiring Telemetry Dialog */}
             <HiringModal isOpen={isHiringOpen} onClose={() => setIsHiringOpen(false)} onContactClick={() => setIsContactOpen(true)} />
+
+            {/* Resume Immersive PDF Viewer Dialog */}
+            <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
           </motion.main>
         )}
       </AnimatePresence>
