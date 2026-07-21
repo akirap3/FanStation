@@ -24,6 +24,20 @@ export default function Projects() {
       gitLink: "https://github.com/akirap3/VocabByPaw"
     },
     {
+      id: 'glossa-pop',
+      title: "GlossaPop Language Extension",
+      subtitle: "JavaScript (ES6+), Manifest V3 & Shadow DOM",
+      summary: "A high-performance Manifest V3 Chrome Extension delivering floating translation popups for English and French with Wiktionary IPA phonetics, multi-tier audio playback, and verb conjugations.",
+      role: "Chrome Extension Developer",
+      stack: ["JavaScript (ES6+)", "Manifest V3", "Shadow DOM", "Chrome Storage API", "Vanilla CSS"],
+      challenge: "Preventing host page CSS leakage into floating popups without build tools while orchestrating multi-tier audio fallbacks (Human MP3, Google TTS, Web Speech) and multi-source dictionary API queries.",
+      solution: "Architected a modular ES6 Vanilla JS extension with Shadow DOM injection for 100% style isolation. Built background service workers (`bg-dictionary.js`, `bg-api.js`) for Wiktionary regex scraping, Chrome Storage Sync, and French present verb conjugation parsing.",
+      outcome: "Published an official Chrome Web Store extension featuring a WCAG AA glassmorphism UI, zero host CSS pollution, and sub-50ms multi-tier audio & dictionary lookups.",
+      metrics: ["100% Isolated Shadow DOM (Zero CSS Leakage)", "Multi-Tier Audio Engine (MP3 / TTS / Web Speech)", "Wiktionary Regex Scraper & French Conjugations"],
+      liveLink: "https://chromewebstore.google.com/detail/glossapop/kmamglgfhenmcomflbdmfjdnmnlkggad",
+      gitLink: "https://github.com/akirap3/GlossaPop"
+    },
+    {
       id: 'casa-sueno',
       title: "Casa Sueño del Mar",
       subtitle: "Vite 6, React 19 & Supabase",
